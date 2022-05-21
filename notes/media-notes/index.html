@@ -25,17 +25,17 @@
 
 <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
-<title>Random-Sql-Best-Practices • Asbjørn Brandt's Notes</title>
+<title>Media-Notes • Asbjørn Brandt's Notes</title>
 
 <meta name="description" content="A small site mostly to play with static sites and share some thoughts and rough writing on tech, data and programming.">
 
-<meta property="og:title" content="Random-Sql-Best-Practices • Asbjørn Brandt's Notes">
+<meta property="og:title" content="Media-Notes • Asbjørn Brandt's Notes">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://tbd.netlify.app/notes/random-sql-best-practices/">
+<meta property="og:url" content="https://tbd.netlify.app/notes/media-notes/">
 <meta property="og:image" content="/assets/chart.png">
 <meta property="og:description" content="A small site mostly to play with static sites and share some thoughts and rough writing on tech, data and programming.">
 
-<link rel="canonical" href="https://tbd.netlify.app/notes/random-sql-best-practices/">
+<link rel="canonical" href="https://tbd.netlify.app/notes/media-notes/">
 
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
@@ -60,17 +60,17 @@
     </header>
     <main>
         <article>
-    <h1>Random sql best practices</h1>
-<p>Ordinary:</p>
+    <h1>Media notes</h1>
+<p>Collection of notes on books I've read, podcasts I've heard etc.</p>
+<h2>Books</h2>
 <ul>
-<li>Use datetime2 datatype over datetime. More precision, lower footprint.</li>
-<li>Avoid varchar(max)/text/xml etc. when possible varchar(4000) is much better than max. varchar(64) better of course if it fits - or smaller even.</li>
-<li>Almost always use temp tables (<code>#Table</code>) instead of table variables (<code>@Table</code>). Cardinality estimation is wack with table variables even in newer versions.</li>
-<li>Take care of invalidating varchar indexes when calling sql from application code - if strings are supplied in unicode they translate to nvarchar and can't use the index on some collations.</li>
+<li>Pragmatic programmer</li>
+<li><a href="/notes/code-that-fits-in-your-head/">code-that-fits-in-your-head</a></li>
 </ul>
-<p>Minor ones:</p>
+<h2>Podcasts</h2>
 <ul>
-<li>Avoid merge due to issues</li>
+<li><a href="/notes/career-tools/">career-tools</a></li>
+<li><a href="/notes/staff-eng/">staff-eng</a></li>
 </ul>
 
 </article>

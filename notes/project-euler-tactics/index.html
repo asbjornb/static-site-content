@@ -25,17 +25,17 @@
 
 <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
-<title>Random-Sql-Best-Practices • Asbjørn Brandt's Notes</title>
+<title>Project-Euler-Tactics • Asbjørn Brandt's Notes</title>
 
 <meta name="description" content="A small site mostly to play with static sites and share some thoughts and rough writing on tech, data and programming.">
 
-<meta property="og:title" content="Random-Sql-Best-Practices • Asbjørn Brandt's Notes">
+<meta property="og:title" content="Project-Euler-Tactics • Asbjørn Brandt's Notes">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://tbd.netlify.app/notes/random-sql-best-practices/">
+<meta property="og:url" content="https://tbd.netlify.app/notes/project-euler-tactics/">
 <meta property="og:image" content="/assets/chart.png">
 <meta property="og:description" content="A small site mostly to play with static sites and share some thoughts and rough writing on tech, data and programming.">
 
-<link rel="canonical" href="https://tbd.netlify.app/notes/random-sql-best-practices/">
+<link rel="canonical" href="https://tbd.netlify.app/notes/project-euler-tactics/">
 
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
@@ -60,24 +60,41 @@
     </header>
     <main>
         <article>
-    <h1>Random sql best practices</h1>
-<p>Ordinary:</p>
+    <h1>Project Euler tactics</h1>
+<p>Some generic hints:</p>
 <ul>
-<li>Use datetime2 datatype over datetime. More precision, lower footprint.</li>
-<li>Avoid varchar(max)/text/xml etc. when possible varchar(4000) is much better than max. varchar(64) better of course if it fits - or smaller even.</li>
-<li>Almost always use temp tables (<code>#Table</code>) instead of table variables (<code>@Table</code>). Cardinality estimation is wack with table variables even in newer versions.</li>
-<li>Take care of invalidating varchar indexes when calling sql from application code - if strings are supplied in unicode they translate to nvarchar and can't use the index on some collations.</li>
+<li>Even if HashSet<int>/Dict&lt;int,int&gt; should in principle be fast the overhead is high enough that often it's much faster to use int[] or bool[]
+<ul>
+<li>For primes and checks rather than HashSet<int> with primes and IsPrime(n) =&gt; set.Contains(n) it's faster with bool[] and IsPrime(n) =&gt; primes[n]</li>
+<li>For storing say divisors for some numbers it still might be faster to just use int[] over dictionary with Divisors(n) =&gt; divisors[n]&gt;-1?divisors[n]:CalculateDivisors(n)</li>
 </ul>
-<p>Minor ones:</p>
+</li>
+<li>Use memoization to shortcircuit expensive recursive calculations</li>
+<li>It's often cheaper to pregenerate all values than calculate individualle.
 <ul>
-<li>Avoid merge due to issues</li>
+<li>Sieve primes rather than check individually</li>
+<li>Find NumDivisors or SumOfDivisors across a range by iterating rather than for individual keys</li>
+</ul>
+</li>
 </ul>
 
 </article>
 <hr>
 <p class="backlinks-title larger">Backlinks</p>
 
-<p class="backlinks-default">No backlinks found.</p>
+<ul class="backlinks-container">
+    
+        <li class="backlink">
+            <a href="/notes/project-euler/" class="backlink__link">Project-Euler</a>
+            <div class="backlink__preview" role="none">
+                <h1>Project Euler</h1>
+<p>Github at <a href="https://github.com/asbjornb/small-code-challenges">github.com/asbjornb/small-code-challenges</a></p>
+<p>See also <a href="/notes/project-euler-tactics/">project-euler-tactics</a></p>
+
+            </div>
+        </li>
+    
+</ul>
 
     </main>
     
